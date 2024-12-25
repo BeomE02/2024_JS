@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>범카페</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <img src="images/free-icon-coffee-bean-778063.png" alt="커피 아이콘">
+        <p>범카페</p>
+    </header>      
+    <div class="container">
+        <div class="sidebar">
+            <h3>카테고리</h3>
+            <button class="category-button" data-category="all">전체</button>
+            <button class="category-button" data-category="beverages">음료</button>
+            <button class="category-button" data-category="snacks">간식</button>
+            <button class="category-button" data-category="desserts">디저트</button>
+            <button class="admin-button" id="adminButton">관리자</button>
+        </div>
+        <div class="menu" id="menu">
+            <div class="menu-item" draggable="true" data-name="커피" data-price="5000" data-category="beverages">
+                <img src="images/1.png" alt="커피">
+                <span>커피<br>5,000원</span>
+            </div>
+            <div class="menu-item" draggable="true" data-name="차" data-price="4000" data-category="beverages">
+                <img src="images/2.jpg" alt="차">
+                <span>차<br>4,000원</span>
+            </div>
+        </div>
+        <div class="cart" id="cart">
+            <h3>장바구니</h3>
+            <div class="cart-items"></div>
+            <div class="cart-totalbox" id="cartTotalbox">
+                <p>총 합계: <span id="total">0</span>원 &nbsp;&nbsp; 메뉴 개수: <span id="totalItems">0</span>개</p>
+            </div>            
+            <button class="checkout-button" id="checkoutButton">결제하기</button>
+            <button class="checkout-button" id="cancelButton">전체취소</button>
+        </div>
+    </div>
+    <footer>
+        © 2024 Frontend Report
+    </footer>
+
+    <div id="adminPanel">
+        <h2>관리자 모드</h2>
+        <div>
+            <h3>메뉴 추가</h3>
+            <input type="text" id="newItemName" placeholder="메뉴 이름">
+            <input type="number" id="newItemPrice" placeholder="가격">
+            <select id="newItemCategory">
+                <option value="beverages">음료</option>
+                <option value="snacks">간식</option>
+                <option value="desserts">디저트</option>
+            </select>
+            <input type="file" id="newItemImage" accept="image/*">
+            <img id="imagePreview" class="image-preview" alt="미리보기" style="display:none;"> 
+            <button id="addMenuItem">추가</button>
+        </div>
+        <div>
+            <h3>메뉴 삭제</h3>
+            <input type="text" id="deleteItemName" placeholder="삭제할 메뉴 이름">
+            <button id="deleteMenuItem">삭제</button>
+        </div>
+        <div>
+            <h3>현재 판매 금액</h3>
+            <p id="salesTotal">0원</p>
+        </div>
+        <div>
+            <h3>판매 내역</h3>
+            <div id="salesHistory"></div>
+        </div>
+        <button id="exitAdmin">나가기</button>
+    </div>
+    
+    <div id="receiptModal" class="receipt-modal">
+        <div class="receipt-content">
+            <h1>범카페</h1>
+            <br>
+            <p>승인번호: <span id="approvalNumber"></span></p>
+            <p>승인일시: <span id="approvalDate"></span></p>
+            <hr><br>
+            <div id="receiptItems"></div>
+            <br><hr><br>
+            <p>총 상품 금액: <span id="subtotal"></span>원</p>
+            <p>부가세: <span id="vat"></span>원</p>
+            <h4>총 결제 금액: <span id="totalPayment"></span>원</h4>
+            <button id="closeReceipt">닫기</button>
+        </div>
+    </div>
+
+
+    
+    <script src="scripts.js"></script>
+</body>
+</html>
